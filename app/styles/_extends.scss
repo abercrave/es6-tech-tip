@@ -1,0 +1,83 @@
+%animated-background {
+  display: inline-block;
+  padding: 0 5px;
+  position: relative;
+  &:before {
+    background-color: darken($color-gray-light, 10%);
+    border-radius: 6px;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s $easeOutQuint;
+    width: 0;
+    z-index: 0;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+  .text {
+    position: relative;
+    z-index: 1
+  }
+}
+
+%animated-bullet {
+  $font-size: 1;
+  $large-size: 1.5;
+  $line-height: 1.6;
+  $offset: 2;
+  $adjusted-font-size: $font-size/$large-size;
+  $adjusted-line-height: $line-height/$large-size;
+  $adjusted-offset: $offset * $adjusted-font-size;
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
+  li {
+    line-height: $line-height;
+    margin: 0.4em 0;
+    padding-left: #{$offset}em;
+    position: relative;
+    &:before {
+      content: '•';
+      display: block;
+      height: #{$font-size}em;
+      left: 0;
+      line-height: $line-height;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      transition: all 0.2s $easeOutQuint;
+      width: #{$offset}em;
+    }
+    &:hover {
+      &:before {
+        color: lighten($color-gray-dark, 50%);
+        font-size: #{$large-size}em;
+        line-height: $adjusted-line-height;
+        width: #{$adjusted-offset}em;
+      }
+    }
+  }
+}
+
+%button {
+  background: $color-gray-dark;
+  border: 0 none;
+  border-radius: 3px;
+  color: $color-gray-light;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.6em 1em;
+  transition: all 0.35s $easeOutQuint;
+  &:hover {
+    background: $color-red;
+  }
+}

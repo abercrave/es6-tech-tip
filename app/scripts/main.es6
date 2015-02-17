@@ -1,46 +1,76 @@
-class Person {
+(function(window, document, $, undefined) {
 
-  constructor(firstName, lastName) {
-  // constructor(firstName = 'Joe', lastName='Schmoe') {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  "use strict";
+
+  // Classes
+  class Person {
+
+    constructor(firstName, lastName) {
+    // Default arguments
+    // constructor(firstName = 'Joe', lastName='Schmoe') {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    get name() {
+      return this.firstName + ' ' + this.lastName;
+      // Template strings
+      // return `${this.firstname} $this.lastName`;
+    }
+
+    set name(name) {
+      var names = name.split(' ');
+      this.firstName = names[0];
+      this.lastName = names[1];
+
+      // Destructuring arrays
+      // [this.firstName, this.lastName] = name.split(' ');
+    }
+
+    greet() {
+      setTimeout(function() {
+      // setTimeout(() => {
+        alert('Greetings, ' + this.name + '!');
+      }, 1)
+    }
   }
 
-  get name() {
-    return this.firstName + ' ' + this.lastName;
+  var person = new Person('Ben', 'Evans');
+  // console.log(person.name);
+
+  $('button').click(() => {
+    person.greet();
+  })
+  // console.log(person.name);
+
+  // Splats
+  var awards = (first, second, ...others) => {
+    return {
+      gold: first,
+      silver: second,
+      honorableMention: others
+    }
   }
+  // console.log(awards('Tom', 'Dick', 'Harry', 'Adolphus'));
 
-  set name(name) {
-    var names = name.split(' ');
+  // Maps
+  var m = new Map
+  m.set('name', 'Bobby');
+  //
+  // console.log('m.name', m.get('name'));
+  // console.log('m.size', m.size);
 
-    this.firstName = names[0];
-    this.lastName = names[1];
+  m.set('age', 5)
 
-    // [this.firstName, this.lastName] = name.split(' ');
-  }
+  // console.log(m.has('age'));
+  // console.log(m.has('foobar'));
 
-  greet() {
-    alert('Greetings,' + this.name + '!');
-  }
+  m.forEach(function(value, key){
+    // console.log(key + ' maps to ' + value);
+  });
 
-  greetLater() {
-    setTimeout(function() {
-    // setTimeout(() => {
-      alert('Greetings, ' + this.name + '!');
-    }, 1);
-  }
-}
+  m.clear();
 
-var person = new Person('Ben', 'Evans');
+  // console.log(m.size);
 
-// console.log(person.name);
-
-var awards = (first, second, ...others) => {
-  return {
-    gold: first,
-    silver: second,
-    honorableMention: others
-  };
-}
-
-// console.log(awards('Tom', 'Dick', 'Harry', 'Adolphus'));
+}(window, document, jQuery));

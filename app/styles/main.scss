@@ -1,10 +1,13 @@
 // bower:scss
 // endbower
 
+@import 'config';
+@import 'extends';
+
 body {
-  background: #fafafa;
+  background: $color-gray-light;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  color: $color-gray-dark;
 }
 
 .hero-unit {
@@ -13,20 +16,36 @@ body {
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  background-color: darken($color-gray-light, 5%);
   border-radius: 6px;
   padding: 60px;
   h1 {
-    color: #ed2224;
-    font-size: 60px;
+    color: $color-red;
     line-height: 1;
     letter-spacing: -1px;
+    margin: 1em 0em;
   }
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+button {
+  @extend %button;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $color-gray-dark;
+  margin: 1em 0;
+  padding: 0;
+}
+
+ul {
+  @extend %animated-bullet;
+}
+
+a {
+  @extend %animated-background;
+  color: $color-gray-dark;
+  text-decoration: none;
 }
