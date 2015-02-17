@@ -30,13 +30,17 @@
     greet() {
       setTimeout(function() {
       // setTimeout(() => {
-        alert('Greetings, ' + this.name + '!');
+        alert('Greetings, ' + this.firstName + '!');
       }, 1)
     }
   }
 
   var person = new Person('Ben', 'Evans');
-  // console.log(person.name);
+
+  // Getters & setters
+  // person.name = 'Benny Hill';
+
+  console.log(person.name);
 
   // Fat arrows
   $('button').click(() => {

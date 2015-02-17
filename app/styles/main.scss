@@ -47,7 +47,6 @@ ul {
 a {
   @extend %animated-background;
   color: $color-gray-dark;
-  text-decoration: none;
   &:over {
     color: $color-none-more-black;
   }
