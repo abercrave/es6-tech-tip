@@ -11,11 +11,11 @@ body {
 }
 
 .hero-unit {
-  margin: 50px auto 0 auto;
+  margin: 50px auto 0;
   width: 300px;
   font-size: 18px;
   font-weight: 200;
-  line-height: 30px;
+  line-height: 1.667;
   background-color: darken($color-gray-light, 5%);
   border-radius: 6px;
   padding: 60px;
@@ -41,11 +41,14 @@ hr {
 }
 
 ul {
-  @extend %animated-bullet;
+  @extend %custom-bullet;
 }
 
 a {
   @extend %animated-background;
   color: $color-gray-dark;
   text-decoration: none;
+  &:over {
+    color: $color-none-more-black;
+  }
 }

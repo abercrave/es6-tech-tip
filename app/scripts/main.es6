@@ -38,6 +38,7 @@
   var person = new Person('Ben', 'Evans');
   // console.log(person.name);
 
+  // Fat arrows
   $('button').click(() => {
     person.greet();
   })
@@ -56,7 +57,7 @@
   // Maps
   var m = new Map
   m.set('name', 'Bobby');
-  //
+
   // console.log('m.name', m.get('name'));
   // console.log('m.size', m.size);
 
